@@ -7,6 +7,7 @@ public class CustomerService
     private readonly DisplayNameFormatter displayNameFormatter = new DisplayNameFormatter();
     private readonly CustomerEmailValidator emailValidator = new CustomerEmailValidator();
     private readonly LoyaltyPointsCalculator loyaltyPointsCalculator = new LoyaltyPointsCalculator();
+    private readonly AccountStatusService accountStatusService = new AccountStatusService();
 
 
     public bool IsValidEmail(string email)
@@ -26,15 +27,6 @@ public class CustomerService
 
     public string DetermineAccountStatus(int daysSinceLastLogin)
     {
-        if (daysSinceLastLogin > 365)
-        {
-            return "INACTIVE";
-        }
-        else if (daysSinceLastLogin > 30)
-        {
-            return "DORMANT";
-        }
-
-        return "ACTIVE";
+        return accountStatusService.DetermineAccountStatus(daysSinceLastLogin);
     }
 }
