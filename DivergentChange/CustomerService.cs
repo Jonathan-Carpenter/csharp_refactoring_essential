@@ -1,20 +1,12 @@
 ﻿namespace DivergentChange;
 
-using System;
 using System.Text.RegularExpressions;
 
 public class CustomerService
 {
     public bool IsValidEmail(string email)
     {
-        if (email == null)
-        {
-            return false;
-        }
-
-        return Regex.IsMatch(
-            email,
-            @"^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
+        return CustomerEmailValidator.IsValidEmail(email);
     }
 
     public string FormatDisplayName(string firstName, string lastName)
