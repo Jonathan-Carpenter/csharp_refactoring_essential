@@ -8,16 +8,9 @@ public class X1
 
         for (int i = lowerBound; i <= upperBound; i++)
         {
-            // Add square of each number in the range
-            sumOfSquares += N(i);
+            sumOfSquares += i*i;
         }
 
         return sumOfSquares;
-    }
-
-    static int N(int k)
-    {
-        // Return square of input
-        return k * k;
     }
 }
