@@ -4,24 +4,30 @@ namespace ShippingCalculator.Test
 {
     public class ShippingCalculatorTests
     {
-        private LegacyCode.ShippingCalculator shippingCalculator = new(new DummyOrderService(new Order()
+        private static IEnumerable<TestCaseData> TestCases
         {
-            DistanceKm = 0.0,
-            Fragile = false,
-            OrderId = 0,
-            ShippingType = "STANDARD",
-            WeightKg = 5
-        }));
-
-        [SetUp]
-        public void Setup()
-        {
+            get
+            {
+                yield return new TestCaseData(
+                    new Order
+                    {
+                        DistanceKm = 0.0,
+                        Fragile = false,
+                        OrderId = 0,
+                        ShippingType = "STANDARD",
+                        WeightKg = 5
+                    },
+                    2.5);
+            }
         }
 
         [Test]
-        public void Test1()
+        [TestCaseSource(nameof(TestCases))]
+        public void Test1(Order order, double expectedShippingCost)
         {
-            var shipping = this.shippingCalculator.CalculateShipping(0);
+            var shippingCalculator = new LegacyCode.ShippingCalculator(new DummyOrderService(order));
+
+            var shipping = shippingCalculator.CalculateShipping(0);
 
             Assert.That(shipping, Is.EqualTo(2.5));
         }
