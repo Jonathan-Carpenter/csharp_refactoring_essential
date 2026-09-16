@@ -2,7 +2,7 @@
 
 namespace LegacyCode;
 
-public class OrderService
+public class OrderService : IOrderService
 {
     private readonly HttpClient _httpClient = new HttpClient();
 

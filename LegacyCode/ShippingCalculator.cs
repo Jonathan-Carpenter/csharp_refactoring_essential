@@ -16,18 +16,18 @@ public class Order
 
 public class ShippingCalculator
 {
-    private readonly OrderService orderService;
+    private readonly IOrderService _orderService;
 
-    public ShippingCalculator()
+    public ShippingCalculator(IOrderService orderService)
     {
-        orderService = new OrderService();
+        _orderService = orderService;
     }
 
     public double CalculateShipping(int orderId)
     {
         try
         {
-            var order = orderService.GetOrder(orderId);
+            var order = _orderService.GetOrder(orderId);
 
             if (order == null)
                 throw new Exception("Failed to deserialize order");
