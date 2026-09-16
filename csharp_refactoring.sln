@@ -1,5 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.9.12112.369 stable
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comments", "Comments\Comments.csproj", "{86B6725B-1224-441A-BD30-2BD2C7C53644}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comments.Test", "Comments.Test\Comments.Test.csproj", "{58A2DF33-7E3B-44B2-9ABC-5BAA958D4663}"
@@ -27,6 +30,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegacyCode", "LegacyCode\LegacyCode.csproj", "{499FC306-53B3-43DA-A3D5-6E1962CE8A50}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegacyCode.Console", "LegacyCode.Console\LegacyCode.Console.csproj", "{53AA7694-1530-47EA-ADB9-FA17C5557DA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShippingCalculator.Test", "ShippingCalculator.Test\ShippingCalculator.Test.csproj", "{69422B2F-0C51-49DA-9A02-B04D06B2F509}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -90,5 +95,15 @@ Global
 		{53AA7694-1530-47EA-ADB9-FA17C5557DA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53AA7694-1530-47EA-ADB9-FA17C5557DA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53AA7694-1530-47EA-ADB9-FA17C5557DA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69422B2F-0C51-49DA-9A02-B04D06B2F509}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69422B2F-0C51-49DA-9A02-B04D06B2F509}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69422B2F-0C51-49DA-9A02-B04D06B2F509}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69422B2F-0C51-49DA-9A02-B04D06B2F509}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1AD881E0-B87B-4F9A-96DD-3012F768221E}
 	EndGlobalSection
 EndGlobal
