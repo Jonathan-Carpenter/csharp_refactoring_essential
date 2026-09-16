@@ -3,7 +3,7 @@
 using NUnit.Framework;
 
 [TestFixture]
-public class X1Test
+public class CalculatorTest
 {
     [Test]
     public void CalculatingSumOfSquaresInRange()
@@ -17,7 +17,7 @@ public class X1Test
             expectedSum += i * i;
         }
 
-        int actualResult = X1.SumOfSquaresInRange(lowerBound, upperBound);
+        int actualResult = Calculator.SumOfSquaresInRange(lowerBound, upperBound);
 
         Assert.That(actualResult, Is.EqualTo(expectedSum));
     }
