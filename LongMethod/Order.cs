@@ -20,16 +20,7 @@ public class Order
 
         var rawItemsTotal = GetRawItemsTotal();
 
-        // Discount rules
-        double discount = 0.0;
-        if (_customer.IsLoyal)
-        {
-            discount = rawItemsTotal * 0.10;
-        }
-        else if (rawItemsTotal > 100)
-        {
-            discount = rawItemsTotal * 0.05;
-        }
+        var discount = GetDiscount(rawItemsTotal);
 
         // Tax calculation
         double taxableAmount = rawItemsTotal - discount;
@@ -39,6 +30,21 @@ public class Order
         double total = taxableAmount + tax;
 
         return new OrderSummary(rawItemsTotal, discount, tax, total);
+    }
+
+    private double GetDiscount(double rawItemsTotal)
+    {
+        var discount = 0.0;
+        if (_customer.IsLoyal)
+        {
+            discount = rawItemsTotal * 0.10;
+        }
+        else if (rawItemsTotal > 100)
+        {
+            discount = rawItemsTotal * 0.05;
+        }
+
+        return discount;
     }
 
     private double GetRawItemsTotal()
