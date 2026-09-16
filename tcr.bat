@@ -1,2 +1,2 @@
-﻿git add .
+git add .
 dotnet test && git commit -m "It works!" || git reset --hard
