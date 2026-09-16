@@ -8,6 +8,7 @@ namespace ShippingCalculator.Test
         {
             get
             {
+                // 5kg * 0.5 = 2.5
                 yield return new TestCaseData(
                     new Order
                     {
@@ -18,6 +19,30 @@ namespace ShippingCalculator.Test
                         WeightKg = 5
                     },
                     2.5);
+
+                // (5kg * 0.8) + (3km * 0.1) = 4 + 0.3 = 4.3
+                yield return new TestCaseData(
+                    new Order
+                    {
+                        DistanceKm = 3.0,
+                        Fragile = false,
+                        OrderId = 0,
+                        ShippingType = "EXPRESS",
+                        WeightKg = 5
+                    },
+                    4.3);
+
+                // (5kg * 1.2) + 25 = 31
+                yield return new TestCaseData(
+                    new Order
+                    {
+                        DistanceKm = 0.0,
+                        Fragile = false,
+                        OrderId = 0,
+                        ShippingType = "OVERNIGHT",
+                        WeightKg = 5
+                    },
+                    31);
             }
         }
 
@@ -29,7 +54,7 @@ namespace ShippingCalculator.Test
 
             var shipping = shippingCalculator.CalculateShipping(0);
 
-            Assert.That(shipping, Is.EqualTo(2.5));
+            Assert.That(shipping, Is.EqualTo(expectedShippingCost));
         }
     }
 }
