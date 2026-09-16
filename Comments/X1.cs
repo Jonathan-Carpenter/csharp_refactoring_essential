@@ -2,19 +2,17 @@
 
 public class X1
 {
-    public static int M(int q, int z)
+    public static int M(int lowerBound, int upperBound)
     {
-        int p = 0;
+        int sumOfSquares = 0;
 
-        // Iterate from lower bound (q) to upper bound (z)
-        for (int i = q; i <= z; i++)
+        for (int i = lowerBound; i <= upperBound; i++)
         {
             // Add square of each number in the range
-            p += N(i);
+            sumOfSquares += N(i);
         }
 
-        // Return accumulated sum
-        return p;
+        return sumOfSquares;
     }
 
     static int N(int k)
