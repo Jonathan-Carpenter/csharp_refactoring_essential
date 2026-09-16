@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class Order
 {
+    private const double TaxRate = 0.20;
+
     private readonly List<OrderItem> _items;
     private readonly Customer _customer;
 
@@ -24,7 +26,7 @@ public class Order
 
         // Tax calculation
         double taxableAmount = rawItemsTotal - discount;
-        double tax = taxableAmount * 0.20;
+        double tax = taxableAmount * TaxRate;
 
         // Total calculation
         double total = taxableAmount + tax;
