@@ -55,31 +55,3 @@ public class Order
         return new OrderSummary(subtotal, discount, tax, total);
     }
 }
-
-public class OrderItem
-{
-    public double Price { get; }
-    public double Quantity { get; }
-
-    public OrderItem(double price, double quantity)
-    {
-        Price = price;
-        Quantity = quantity;
-    }
-}
-
-public class OrderSummary
-{
-    public double Subtotal { get; }
-    public double Discount { get; }
-    public double Tax { get; }
-    public double Total { get; }
-
-    public OrderSummary(double subtotal, double discount, double tax, double total)
-    {
-        Subtotal = subtotal;
-        Discount = discount;
-        Tax = tax;
-        Total = total;
-    }
-}
