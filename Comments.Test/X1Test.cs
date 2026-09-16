@@ -6,20 +6,19 @@ using NUnit.Framework;
 public class X1Test
 {
     [Test]
-    public void T1()
+    public void CalculatingSumOfSquaresInRange()
     {
-        int a = 7;
-        int b = 12;
+        int lowerBound = 7;
+        int upperBound = 12;
 
-        // Expected: sum of squares from 7 to 12
-        int expected = 0;
-        for (int i = a; i <= b; i++)
+        int expectedSum = 0;
+        for (int i = lowerBound; i <= upperBound; i++)
         {
-            expected += i * i;
+            expectedSum += i * i;
         }
 
-        int actual = X1.SumOfSquaresInRange(a, b);
+        int actualResult = X1.SumOfSquaresInRange(lowerBound, upperBound);
 
-        Assert.That(actual, Is.EqualTo(expected));
+        Assert.That(actualResult, Is.EqualTo(expectedSum));
     }
 }
