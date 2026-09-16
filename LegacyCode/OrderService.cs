@@ -6,7 +6,7 @@ public class OrderService : IOrderService
 {
     private readonly HttpClient _httpClient = new HttpClient();
 
-    public Order? GetOrder(int orderId)
+    public Order GetOrder(int orderId)
     {
         var url = $"https://codemanship.co.uk/api/orders.php?orderId={orderId}";
 
@@ -28,6 +28,10 @@ public class OrderService : IOrderService
         };
             
         var order = JsonSerializer.Deserialize<Order>(json, options);
+
+        if (order == null)
+            throw new Exception("Failed to deserialize order");
+
         return order;
     }
 }

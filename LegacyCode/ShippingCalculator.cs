@@ -28,9 +28,6 @@ public class ShippingCalculator
         try
         {
             var order = _orderService.GetOrder(orderId);
-
-            if (order == null)
-                throw new Exception("Failed to deserialize order");
             
             switch (order.ShippingType)
             {

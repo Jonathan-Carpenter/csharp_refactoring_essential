@@ -2,5 +2,5 @@
 
 public interface IOrderService
 {
-    Order? GetOrder(int orderId);
+    Order GetOrder(int orderId);
 }

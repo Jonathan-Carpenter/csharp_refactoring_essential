@@ -1,4 +1,6 @@
-﻿namespace LegacyCode;
+﻿using LegacyCode;
+
+namespace ShippingCalculator.Test;
 
 public class DummyOrderService : IOrderService
 {
@@ -9,7 +11,7 @@ public class DummyOrderService : IOrderService
         this.order = order;
     }
 
-    public Order? GetOrder(int orderId)
+    public Order GetOrder(int orderId)
     {
         return order;
     }
