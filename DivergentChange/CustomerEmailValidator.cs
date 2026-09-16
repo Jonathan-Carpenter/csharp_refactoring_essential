@@ -2,9 +2,9 @@
 
 namespace DivergentChange;
 
-public static class CustomerEmailValidator
+public class CustomerEmailValidator
 {
-    public static bool IsValidEmail(string email)
+    public bool IsValidEmail(string email)
     {
         if (email == null)
         {

@@ -4,9 +4,11 @@ using System.Text.RegularExpressions;
 
 public class CustomerService
 {
+    
     public bool IsValidEmail(string email)
     {
-        return CustomerEmailValidator.IsValidEmail(email);
+        var emailValidator = new CustomerEmailValidator();
+        return emailValidator.IsValidEmail(email);
     }
 
     public string FormatDisplayName(string firstName, string lastName)
