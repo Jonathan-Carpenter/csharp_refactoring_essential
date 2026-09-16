@@ -56,16 +56,6 @@ public class Order
     }
 }
 
-public class Customer
-{
-    public bool IsLoyal { get; }
-
-    public Customer(bool loyal)
-    {
-        IsLoyal = loyal;
-    }
-}
-
 public class OrderItem
 {
     public double Price { get; }
