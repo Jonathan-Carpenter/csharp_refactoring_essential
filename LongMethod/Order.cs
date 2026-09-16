@@ -18,32 +18,38 @@ public class Order
     {
         Validate();
 
-        // Subtotal calculation
-        double subtotal = 0.0;
-        foreach (var item in _items)
-        {
-            subtotal += item.Price * item.Quantity;
-        }
+        var rawItemsTotal = GetRawItemsTotal();
 
         // Discount rules
         double discount = 0.0;
         if (_customer.IsLoyal)
         {
-            discount = subtotal * 0.10;
+            discount = rawItemsTotal * 0.10;
         }
-        else if (subtotal > 100)
+        else if (rawItemsTotal > 100)
         {
-            discount = subtotal * 0.05;
+            discount = rawItemsTotal * 0.05;
         }
 
         // Tax calculation
-        double taxableAmount = subtotal - discount;
+        double taxableAmount = rawItemsTotal - discount;
         double tax = taxableAmount * 0.20;
 
         // Total calculation
         double total = taxableAmount + tax;
 
-        return new OrderSummary(subtotal, discount, tax, total);
+        return new OrderSummary(rawItemsTotal, discount, tax, total);
+    }
+
+    private double GetRawItemsTotal()
+    {
+        double rawItemsTotal = 0.0;
+        foreach (var item in _items)
+        {
+            rawItemsTotal += item.Price * item.Quantity;
+        }
+
+        return rawItemsTotal;
     }
 
     private void Validate()
