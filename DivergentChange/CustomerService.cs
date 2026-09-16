@@ -4,16 +4,18 @@ using System.Text.RegularExpressions;
 
 public class CustomerService
 {
-    
+    private readonly DisplayNameFormatter displayNameFormatter = new DisplayNameFormatter();
+    private readonly CustomerEmailValidator emailValidator = new CustomerEmailValidator();
+
+
     public bool IsValidEmail(string email)
     {
-        var emailValidator = new CustomerEmailValidator();
         return emailValidator.IsValidEmail(email);
     }
 
     public string FormatDisplayName(string firstName, string lastName)
     {
-        return firstName.Trim() + " " + lastName.Trim().ToUpper();
+        return displayNameFormatter.FormatDisplayName(firstName, lastName);
     }
 
     public int CalculateLoyaltyPoints(int numberOfPurchases)
